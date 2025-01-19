@@ -6,7 +6,7 @@ print("==================================")
 print("")
 
 # Collecting bunny information
-bunny_name = input("Enter your bunny's name: ")
+bunny_name = input("Enter your bunny's special name: ")
 
 # We can't just ask for age
 # We need to ask for the UNIT of age
