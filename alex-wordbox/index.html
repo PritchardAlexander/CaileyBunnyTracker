@@ -1,0 +1,74 @@
+<!-- -------------------------------------------------------------------- -->
+<!-- index.html -->
+<!-- -------------------------------------------------------------------- -->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title>Wordbox Trainer</title>
+    <style>
+        /* Add this inside the <style> tag in index.html */
+        #grid {
+            display: grid;
+            grid-template-columns: repeat(4, 60px);
+            grid-gap: 5px;
+            margin-bottom: 20px;
+        }
+
+        .cell {
+            width: 60px;
+            height: 60px;
+            background-color: #e0e0e0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .cell.selected {
+            background-color: #a0d0ff;
+        }
+
+        .cell.hint {
+            background-color: #ffd700;
+            /* Gold color for hints */
+        }
+
+        #current-word {
+            margin-bottom: 10px;
+        }
+
+        #message {
+            margin-top: 10px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Wordbox Trainer</h1>
+    <div id="game" style="display: inline-block;">
+        <div id="grid"></div>
+        <div id="current-word">Current Word: <span id="word"></span></div>
+        <button id="submit-button">Submit Word</button>
+        <button id="hint-button">Get a Hint</button>
+        <button id="reset-button">Reset</button>
+        <div id="message"></div>
+        <div id="wordsRemainingMessage"></div>
+    </div>
+
+    <!-- Grid Input Area -->
+    <div id="grid-input-area" style="display: inline-block; top: 1rem; position: absolute; margin-left: 3rem;">
+        <label for="grid-input">Enter Grid Letters (16 letters):</label><br>
+        <input type="text" id="grid-input" maxlength="16" size="20" placeholder="Enter 16 letters">
+        <button id="set-grid-button">Set Grid</button>
+        <button id="random-grid-button">Random Grid</button>
+    </div>
+    <br>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
