@@ -41,6 +41,9 @@
                 <form action="{{ url_for('increment_age', bunny_id=bunny.id) }}" method="POST">
                     <button type="submit">Next Day</button>
                 </form>
+                <form action="{{ url_for('release_bunny', bunny_id=bunny.id) }}" method="POST">
+                    <button type="submit">Release</button>
+                </form>
             </div>
         {% endfor %}
     </div>
