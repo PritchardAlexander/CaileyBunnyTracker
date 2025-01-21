@@ -1,0 +1,166 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 20px;
+}
+
+h1, h2 {
+    color: #333;
+}
+
+.bunny-list {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.bunny {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin: 10px;
+    width: 200px;
+    text-align: center;
+}
+
+.bunny img {
+    width: 100px;
+    height: auto;
+}
+
+.bunny p {
+    margin: 5px 0;
+}
+
+form {
+    margin: 15px 0;
+}
+
+label {
+    margin-right: 10px;
+}
+
+
+.animal {
+    width: 136px; /* Width of each animal image */
+    height: 136px; /* Height of each animal image */
+    background-image: url('../images/square_nodetailsOutline.png');
+    display: inline-block;
+}
+
+.bear {
+    background-position: -272px -272px;
+}
+
+.buffalo {
+    background-position: -544px -136px;
+}
+
+.chick {
+    background-position: -544px -408px;
+}
+
+.chicken {
+    background-position: -544px -272px;
+}
+
+.cow {
+    background-position: -544px -136px;
+}
+
+.crocodile {
+    background-position: -544px 0;
+}
+
+.dog {
+    background-position: -408px -680px;
+}
+
+.duck {
+    background-position: -408px -544px;
+}
+
+.elephant {
+    background-position: -408px -408px;
+}
+
+.frog {
+    background-position: -408px -272px;
+}
+
+.giraffe {
+    background-position: -408px -136px;
+}
+
+.goat {
+    background-position: -408px 0;
+}
+
+.gorilla {
+    background-position: -272px -680px;
+}
+
+.hippo {
+    background-position: -272px -544px;
+}
+
+.horse {
+    background-position: -272px -408px;
+}
+
+.monkey {
+    background-position: -544px -680px;
+}
+
+.moose {
+    background-position: -272px -136px;
+}
+
+.narwhal {
+    background-position: -272px 0;
+}
+
+.owl {
+    background-position: -136px -680px;
+}
+
+.panda {
+    background-position: -136px -544px;
+}
+
+.parrot {
+    background-position: -136px -408px;
+}
+
+.penguin {
+    background-position: -136px -272px;
+}
+
+.pig {
+    background-position: -136px -136px;
+}
+
+.rabbit {
+    background-position: -136px 0;
+}
+
+.rhino {
+    background-position: 0 -680px;
+}
+
+.sloth {
+    background-position: 0 -544px;
+}
+
+.snake {
+    background-position: 0 -408px;
+}
+
+.walrus {
+    background-position: 0 -272px;
+}
+
+.whale {
+    background-position: 0 -136px;
+}
+
+.zebra {
+    background-position: 0 0;
+}

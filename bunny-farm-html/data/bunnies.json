@@ -1,0 +1,30 @@
+[
+    {
+        "id": 1,
+        "name": "Cailey",
+        "image": "rabbit.png",
+        "image_class": "rabbit",
+        "stats": {
+            "HP": 100,
+            "MP": 50,
+            "Energy": 75,
+            "Love": 50,
+            "Irritation": 0,
+            "Age": 10
+        }
+    },
+    {
+        "id": 2,
+        "name": "Alex",
+        "image": "buffalo.png",
+        "image_class": "buffalo",
+        "stats": {
+            "HP": 100,
+            "MP": 50,
+            "Energy": 75,
+            "Love": 50,
+            "Irritation": 0,
+            "Age": 0
+        }
+    }
+]
