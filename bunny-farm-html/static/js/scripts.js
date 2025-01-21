@@ -34,13 +34,16 @@ document.addEventListener('DOMContentLoaded', function () {
             const bunnyDiv = document.createElement('div');
             //bunnyDiv.classList.add('bunny');
             bunnyDiv.classList.add('animal');
-            bunnyDiv.classList.add(bunny.image.split('.')[0]);
+            //bunnyDiv.classList.add(bunny.image.split('.')[0]);
 
             const nameHeader = document.createElement('h3');
             nameHeader.textContent = bunny.name;
 
-            const agePara = document.createElement('p');
-            agePara.textContent = 'Age: ' + bunny.stats.Age + ' days';
+            const imgTag = document.createElement('img');
+            imgTag.src = '/images/' + bunny.image;
+
+            const ageParagraph = document.createElement('p');
+            ageParagraph.textContent = 'Age: ' + bunny.stats.Age + ' days';
 
             // Other stats
             const statsList = document.createElement('ul');
@@ -60,7 +63,8 @@ document.addEventListener('DOMContentLoaded', function () {
             });
 
             bunnyDiv.appendChild(nameHeader);
-            bunnyDiv.appendChild(agePara);
+            bunnyDiv.appendChild(imgTag);
+            bunnyDiv.appendChild(ageParagraph);
             bunnyDiv.appendChild(statsList);
             bunnyDiv.appendChild(incrementButton);
 

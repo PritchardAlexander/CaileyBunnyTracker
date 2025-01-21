@@ -55,10 +55,8 @@ button {
 
 
 .animal {
-    width: 136px; /* Width of each animal image */
-    height: 136px; /* Height of each animal image */
-    background-image: url('../images/square_nodetailsOutline.png');
     display: inline-block;
+    margin: 1em;
 }
 
 .bear {
