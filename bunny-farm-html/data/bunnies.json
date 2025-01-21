@@ -10,7 +10,7 @@
             "Energy": 75,
             "Love": 50,
             "Irritation": 0,
-            "Age": 10
+            "Age": 12
         }
     },
     {
@@ -24,7 +24,46 @@
             "Energy": 75,
             "Love": 50,
             "Irritation": 0,
-            "Age": 0
+            "Age": 6
+        }
+    },
+    {
+        "id": 3,
+        "name": "123",
+        "image": "bear.png",
+        "stats": {
+            "HP": 100,
+            "MP": 50,
+            "Energy": 75,
+            "Love": 50,
+            "Irritation": 0,
+            "Age": 4
+        }
+    },
+    {
+        "id": 4,
+        "name": "43343434",
+        "image": "dog.png",
+        "stats": {
+            "HP": 100,
+            "MP": 50,
+            "Energy": 75,
+            "Love": 50,
+            "Irritation": 0,
+            "Age": 6
+        }
+    },
+    {
+        "id": 5,
+        "name": "23232",
+        "image": "bear.png",
+        "stats": {
+            "HP": 100,
+            "MP": 50,
+            "Energy": 75,
+            "Love": 50,
+            "Irritation": 0,
+            "Age": 8
         }
     }
 ]

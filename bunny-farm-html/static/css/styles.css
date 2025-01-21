@@ -7,7 +7,27 @@ h1, h2 {
     color: #333;
 }
 
-.bunny-list {
+form {
+    margin-bottom: 20px;
+}
+
+label {
+    display: inline-block;
+    width: 120px;
+}
+
+input[type="text"],
+select {
+    width: 200px;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 5px 10px;
+}
+
+#bunny-list {
     display: flex;
     flex-wrap: wrap;
 }
@@ -16,25 +36,21 @@ h1, h2 {
     border: 1px solid #ccc;
     padding: 10px;
     margin: 10px;
-    width: 200px;
+    width: 220px;
     text-align: center;
 }
 
-.bunny img {
-    width: 100px;
-    height: auto;
+.bunny ul {
+    list-style-type: none;
+    padding: 0;
 }
 
-.bunny p {
+.bunny ul li {
     margin: 5px 0;
 }
 
-form {
-    margin: 15px 0;
-}
-
-label {
-    margin-right: 10px;
+.bunny button {
+    margin-top: 10px;
 }
 
 

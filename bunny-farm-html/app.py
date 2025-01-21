@@ -1,150 +1,74 @@
-from flask import Flask, render_template, request, redirect, url_for, jsonify
+from flask import Flask, jsonify, request, send_from_directory
 import json
 import os
 
-app = Flask(__name__)
+app = Flask(__name__, static_url_path='', static_folder='static')
 
-# Path to the JSON file
-DATA_FILE = "data/bunnies.json"
+DATA_FILE = 'data/bunnies.json'
 
 # Ensure the data directory and file exist
 os.makedirs(os.path.dirname(DATA_FILE), exist_ok=True)
 if not os.path.exists(DATA_FILE):
-    with open(DATA_FILE, "w") as f:
+    with open(DATA_FILE, 'w') as f:
         json.dump([], f)
 
-
 def load_bunnies():
-    with open(DATA_FILE, "r") as f:
+    with open(DATA_FILE, 'r') as f:
         return json.load(f)
 
-
 def save_bunnies(bunnies):
-    # Save the list of bunnies to the JSON file
-    with open(DATA_FILE, "w") as f:
-        # Indent the JSON data for easier reading
+    with open(DATA_FILE, 'w') as f:
         json.dump(bunnies, f, indent=4)
 
-
-@app.route("/")
+# Serve the main index.html
+@app.route('/')
 def index():
+    return app.send_static_file('index.html')
+
+# API endpoint to get the list of bunnies
+@app.route('/api/bunnies', methods=['GET'])
+def get_bunnies():
     bunnies = load_bunnies()
-    return render_template("index.html", bunnies=bunnies)
+    return jsonify(bunnies)
 
-
-# Map image filenames to CSS classes
-image_classes = {
-    "bear.png": "bear",
-    "buffalo.png": "buffalo",
-    "chick.png": "chick",
-    "chicken.png": "chicken",
-    "cow.png": "cow",
-    "crocodile.png": "crocodile",
-    "dog.png": "dog",
-    "duck.png": "duck",
-    "elephant.png": "elephant",
-    "frog.png": "frog",
-    "giraffe.png": "giraffe",
-    "goat.png": "goat",
-    "gorilla.png": "gorilla",
-    "hippo.png": "hippo",
-    "horse.png": "horse",
-    "monkey.png": "monkey",
-    "moose.png": "moose",
-    "narwhal.png": "narwhal",
-    "owl.png": "owl",
-    "panda.png": "panda",
-    "parrot.png": "parrot",
-    "penguin.png": "penguin",
-    "pig.png": "pig",
-    "rabbit.png": "rabbit",
-    "rhino.png": "rhino",
-    "sloth.png": "sloth",
-    "snake.png": "snake",
-    "walrus.png": "walrus",
-    "whale.png": "whale",
-    "zebra.png": "zebra",
-}
-
-
-@app.route("/add_bunny", methods=["POST"])
+# API endpoint to add a new bunny
+@app.route('/api/bunnies', methods=['POST'])
 def add_bunny():
     bunnies = load_bunnies()
+    data = request.get_json()
+    name = data.get('name')
+    image = data.get('image')
 
-    # Print the list of bunnies to the console
-    print("")
-    print("=========================")
-    print("BUNNY LIST: ", bunnies)
-    print("=========================")
-    print("")
+    # Generate a new ID
+    next_id = max([bunny['id'] for bunny in bunnies], default=0) + 1
 
-    # Print the form data to the console
-    print("")
-    print("=========================")
-    print("FORM DATA: ", request.form)
-    print("=========================")
-    print("")
-
-    name = request.form["name"]
-    image = request.form["image"]
-
-    # Log that we're creating the bunny
-    print("")
-    print("=========================")
-    print("Creating bunny with name: ", name)
-    print("=========================")
-    print("")
     new_bunny = {
-        "id": len(bunnies) + 1,
-        "name": name,
-        "image": image,  # Keep this if needed elsewhere
-        "image_class": image_classes.get(image, ""),
-        "stats": {
-            "HP": 100,
-            "MP": 50,
-            "Energy": 75,
-            "Love": 50,
-            "Irritation": 0,
-            "Age": 0,
-        },
+        'id': next_id,
+        'name': name,
+        'image': image,
+        'stats': {
+            'HP': 100,
+            'MP': 50,
+            'Energy': 75,
+            'Love': 50,
+            'Irritation': 0,
+            'Age': 0
+        }
     }
-
-    # Log the bunny before adding it to the list
-    print("")
-    print("=========================")
-    print("NEW BUNNY: ", new_bunny)
-    print("=========================")
-    print("")
     bunnies.append(new_bunny)
-
-    # Save the new list of bunnies
     save_bunnies(bunnies)
-    return redirect(url_for("index"))
+    return jsonify(new_bunny), 201
 
-
-@app.route("/release_bunny/<int:bunny_id>", methods=["POST"])
-def release_bunny(bunny_id):
-    # Remove bunny from the list, and re-save the list of bunny
-    bunnies = load_bunnies()
-    for bunny in bunnies:
-        if bunny["id"] == bunny_id:
-            # Remove that bunny from the list
-            bunnies.remove(bunny)
-            break
-    save_bunnies(bunnies)
-    return redirect(url_for("index"))
-
-
-@app.route("/increment_age/<int:bunny_id>", methods=["POST"])
+# API endpoint to increment bunny's age
+@app.route('/api/bunnies/<int:bunny_id>/increment_age', methods=['POST'])
 def increment_age(bunny_id):
     bunnies = load_bunnies()
     for bunny in bunnies:
-        if bunny["id"] == bunny_id:
-            bunny["stats"]["Age"] += 1
-            break
-    save_bunnies(bunnies)
-    return redirect(url_for("index"))
+        if bunny['id'] == bunny_id:
+            bunny['stats']['Age'] += 1
+            save_bunnies(bunnies)
+            return jsonify(bunny)
+    return jsonify({'error': 'Bunny not found'}), 404
 
-
-if __name__ == "__main__":
+if __name__ == '__main__':
     app.run(debug=True)
