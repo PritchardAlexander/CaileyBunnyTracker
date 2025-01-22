@@ -5,6 +5,7 @@ INSTRUCTIONS:
 ```bash
 python -m venv venv
 source venv/bin/activate
+python -m ensurepip --upgrade
 pip install --upgrade pip
 pip install flask
 python app.py
