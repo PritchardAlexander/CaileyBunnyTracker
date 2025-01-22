@@ -4,7 +4,13 @@ INSTRUCTIONS:
 
 ```bash
 python -m venv venv
+
+WINDOWS:
+.\venv\Scripts\activate.bat
+
+MAC:
 source venv/bin/activate
+
 python -m ensurepip --upgrade
 pip install --upgrade pip
 pip install flask

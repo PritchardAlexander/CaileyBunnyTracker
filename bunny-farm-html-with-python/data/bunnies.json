@@ -65,5 +65,18 @@
             "Irritation": 0,
             "Age": 8
         }
+    },
+    {
+        "id": 6,
+        "name": "123terete",
+        "image": "bear.png",
+        "stats": {
+            "HP": 100,
+            "MP": 50,
+            "Energy": 75,
+            "Love": 50,
+            "Irritation": 0,
+            "Age": 0
+        }
     }
 ]
