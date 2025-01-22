@@ -76,7 +76,33 @@
             "Energy": 75,
             "Love": 50,
             "Irritation": 0,
-            "Age": 0
+            "Age": 269
+        }
+    },
+    {
+        "id": 7,
+        "name": "potato",
+        "image": "crocodile.png",
+        "stats": {
+            "HP": 100,
+            "MP": 50,
+            "Energy": 75,
+            "Love": 50,
+            "Irritation": 0,
+            "Age": 18
+        }
+    },
+    {
+        "id": 8,
+        "name": "alex hahahahah",
+        "image": "rabbit.png",
+        "stats": {
+            "HP": 100,
+            "MP": 50,
+            "Energy": 75,
+            "Love": 50,
+            "Irritation": 0,
+            "Age": 3
         }
     }
 ]

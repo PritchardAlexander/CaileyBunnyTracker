@@ -58,6 +58,10 @@ button {
 .animal {
     display: inline-block;
     margin: 1em;
+
+    border: 3px dashed white;
+    padding: 1rem;
+    background-color: rgba(240, 240, 240, .3);
 }
 
 .bear {
