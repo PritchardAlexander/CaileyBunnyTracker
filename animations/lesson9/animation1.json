@@ -1,0 +1,38 @@
+[
+    {
+        "displayText": "A",
+        "frameLengthInMilliseconds": 10
+    },
+    {
+        "displayText": "Al",
+        "frameLengthInMilliseconds": 10
+    },
+    {
+        "displayText": "Alex",
+        "frameLengthInMilliseconds": 10
+    },
+    {
+        "displayText": "Alex li",
+        "frameLengthInMilliseconds": 10
+    },
+    {
+        "displayText": "Alex like",
+        "frameLengthInMilliseconds": 10
+    },
+    {
+        "displayText": "Alex likes ",
+        "frameLengthInMilliseconds": 30
+    },
+    {
+        "displayText": "Alex likes Cai",
+        "frameLengthInMilliseconds": 30
+    },
+    {
+        "displayText": "Alex likes Caile",
+        "frameLengthInMilliseconds": 40
+    },
+    {
+        "displayText": "Alex likes Cailey!!!!",
+        "frameLengthInMilliseconds": 1500
+    }
+]

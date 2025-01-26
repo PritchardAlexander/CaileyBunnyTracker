@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Lesson 8 - Different Timing Per Frame - MetaData Objects</title>
+</head>
+
+<body>
+
+    <!-- Display frame -->
+    <pre id="frameDisplay">...</pre>
+    <br />
+
+    <span id="animationFrameIndexDisplay">...</span>
+    <br />
+
+    <!-- Start / Stop animation button-->
+    <button id="toggleAnimationButton">Toggle Animation</button>
+
+    <script>
+
+        // Create a variable named "animationFrames" and set it to an array of
+        // hardcoded ASCII animation frames to display in the UI
+        const animationFrames = [
+            {
+                displayText: "^_^                   ^_^",
+                frameLengthInMilliseconds: 10
+            },
+            {
+                displayText: "^_^                   ^_^",
+                frameLengthInMilliseconds: 10
+            },
+            {
+                displayText: "^_^                   ^_^",
+                frameLengthInMilliseconds: 10
+            },
+            {
+                displayText: "^_^=B                 ^_^",
+                frameLengthInMilliseconds: 10
+            },
+            {
+                displayText: "^_^=B                 ^_^",
+                frameLengthInMilliseconds: 10
+            },
+            {
+                displayText: "^_^=B                 ^_^",
+                frameLengthInMilliseconds: 30
+            },
+            {
+                displayText: "^_^=B                 ^_^",
+                frameLengthInMilliseconds: 30
+            },
+            {
+                displayText: "^_^==B                ^_^",
+                frameLengthInMilliseconds: 40
+            },
+            {
+                displayText: "^_^====B              ^_^",
+                frameLengthInMilliseconds: 30
+            },
+            {
+                displayText: "^_^=======B           ^_^",
+                frameLengthInMilliseconds: 30
+            },
+            {
+                displayText: ">_<==========B        ^_^",
+                frameLengthInMilliseconds: 1500
+            },
+            {
+                displayText: ">_<===============B * x_x",
+                frameLengthInMilliseconds: 100
+            },
+            {
+                displayText: ">_<===============B * x_x",
+                frameLengthInMilliseconds: 100
+            },
+            {
+                displayText: ">_<===============B * x_x",
+                frameLengthInMilliseconds: 100
+            },
+            {
+                displayText: ">_<===============B * x_x",
+                frameLengthInMilliseconds: 100
+            },
+            {
+                displayText: ">_<===============B * x_x",
+                frameLengthInMilliseconds: 100
+            },
+            {
+                displayText: ">_<===============B * x_x",
+                frameLengthInMilliseconds: 100
+            },
+        ]
+
+        const numberOfFrames = animationFrames.length;
+
+        // Create a variable named "animationFrame" and set the first frame to 0
+        let animationFrameIndex = 0;
+
+        // A variable to track whether or not the animation is actively running
+        let isAnimationRunning = false;
+
+        // Function to increment the frame and log it
+        function incrementFrame() {
+            // If the animation is not running, don't increment the frame
+            // setTimouet may have been called by the browser even after animation has been turned off,
+            // so we need this to be sure we don't increment the frame
+            if (!isAnimationRunning) {
+                return;
+            }
+
+            animationFrameIndex += 1;
+
+            // If we are past the last frame, loop back to the first frame
+            if (animationFrameIndex >= numberOfFrames) {
+                animationFrameIndex = 0;
+            }
+
+            // Log animationFrameIndex to the CONSOLE
+            console.log(`Frame: ${animationFrames[animationFrameIndex].displayText}`);
+            console.log(`Frame Index: ${animationFrameIndex}`);
+            console.log(`Timing: ${animationFrames[animationFrameIndex].frameLengthInMilliseconds}ms`);
+
+            // Display animationFrame in the USER INTERFACE (UI)
+            document.getElementById('animationFrameIndexDisplay').innerText = `Frame: ${animationFrameIndex}`;
+            document.getElementById('frameDisplay').innerText = animationFrames[animationFrameIndex].displayText;
+
+            // If the animation is running, call incrementFrame again after 1500ms
+            if (isAnimationRunning) {
+                setTimeout(incrementFrame, animationFrames[animationFrameIndex].frameLengthInMilliseconds);
+            }
+        }
+
+        function toggleAnimation() {
+            // If the animation is running, stop it
+            isAnimationRunning = !isAnimationRunning;
+
+            // Have we set the animation to start running?
+            if (isAnimationRunning) {
+                // Start the animation
+                incrementFrame();
+            }
+        }
+
+        // Add an event listener to the button to call incrementFrame when clicked
+        document.getElementById('toggleAnimationButton').addEventListener('click', toggleAnimation);
+
+        // Display the first frame of the animation already
+        document.getElementById('frameDisplay').innerText = animationFrames[animationFrameIndex].displayText;
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Lesson 6 - Trigger automated animation loop</title>
+</head>
+
+<body>
+
+    <!-- Display frame -->
+    <pre id="frameDisplay">...</pre>
+    <br />
+
+    <span id="animationFrameIndexDisplay">...</span>
+    <br />
+
+    <!-- Instead of a button for INCREMENT frame, we're going to have
+        a button for RUN ANIMATION-->
+    <button id="runAnimationButton">Run Animation</button>
+
+    <script>
+
+        // Create a variable named "animationFrames" and set it to an array of
+        // hardcoded ASCII animation frames to display in the UI
+        const animationFrames = [
+            "^_^                   ^_^",
+            "^_^                   ^_^",
+            "^_^                   ^_^",
+            "^_^=B                 ^_^",
+            "^_^=B                 ^_^",
+            "^_^=B                 ^_^",
+            "^_^=B                 ^_^",
+            "^_^==B                ^_^",
+            "^_^====B              ^_^",
+            "^_^=======B           ^_^",
+            ">_<==========B        ^_^",
+            ">_<===============B * x_x",
+            ">_<===============B * x_x",
+            ">_<===============B * x_x",
+            ">_<===============B * x_x",
+            ">_<===============B * x_x",
+            ">_<===============B * x_x",
+        ]
+
+        const numberOfFrames = animationFrames.length;
+
+        // Create a variable named "animationFrame" and set the first frame to 0
+        let animationFrameIndex = 0;
+
+        // Function to increment the frame and log it
+        function incrementFrame() {
+            animationFrameIndex += 1;
+
+            // If we are past the last frame, loop back to the first frame
+            if (animationFrameIndex >= numberOfFrames) {
+                animationFrameIndex = 0;
+            }
+
+            // Log animationFrameIndex to the CONSOLE
+            console.log(`Frame: ${animationFrameIndex}`);
+
+            // Display animationFrame in the USER INTERFACE (UI)
+            document.getElementById('animationFrameIndexDisplay').innerText = `Frame: ${animationFrameIndex}`;
+            document.getElementById('frameDisplay').innerText = animationFrames[animationFrameIndex];
+        }
+
+        function runAnimation() {
+
+            // Automatically increment the frame every 200 milliseconds until stopped
+            setInterval(incrementFrame, 200);
+
+            // COMMENTED ALTERNATIVE: Increment the frame once with a delay
+            // setTimeout(incrementFrame, 200);
+        }
+
+        // Add an event listener to the button to call incrementFrame when clicked
+        document.getElementById('runAnimationButton').addEventListener('click', runAnimation);
+
+        // Display the first frame of the animation already
+        document.getElementById('frameDisplay').innerText = animationFrames[animationFrameIndex];
+    </script>
+</body>
+
+</html>

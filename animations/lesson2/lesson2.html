@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Lesson 2 - Button increments animationFrame</title>
+</head>
+
+<body>
+    <!-- Add a button to the web page to increment the current frame-->
+    <button id="incrementButton">Increment Frame</button>
+
+    <script>
+        // Create a variable named "animationFrame" and set the first frame to 0
+        let animationFrame = 0;
+
+        // Function to increment the frame and log it
+        function incrementFrame() {
+            animationFrame += 1;
+            console.log(`Frame: ${animationFrame}`);
+        }
+
+        // Add an event listener to the button to call incrementFrame when clicked
+        document.getElementById('incrementButton').addEventListener('click', incrementFrame);
+    </script>
+</body>
+
+</html>

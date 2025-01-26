@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Lesson 3 - Display animationFrame in the UI</title>
+</head>
+
+<body>
+
+    <!-- Display animationFrame in a span -->
+    <span id="frameDisplay">...</span>
+
+    <!-- Add a button to the web page to increment the current frame-->
+    <button id="incrementButton">Increment Frame</button>
+
+    <script>
+        // Create a variable named "animationFrame" and set the first frame to 0
+        let animationFrame = 0;
+
+        // Function to increment the frame and log it
+        function incrementFrame() {
+            animationFrame += 1;
+
+            // Log animationFrame to the CONSOLE
+            console.log(`Frame: ${animationFrame}`);
+
+            // Display animationFrame in the USER INTERFACE (UI)
+            document.getElementById('frameDisplay').innerText = `Frame: ${animationFrame}`;
+        }
+
+        // Add an event listener to the button to call incrementFrame when clicked
+        document.getElementById('incrementButton').addEventListener('click', incrementFrame);
+    </script>
+</body>
+
+</html>

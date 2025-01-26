@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title>Lesson 5 - Loop manually incremented animation</title>
+</head>
+
+<body>
+
+    <!-- Display frame -->
+    <pre id="frameDisplay">...</pre>
+    <br />
+
+    <span id="animationFrameIndexDisplay">...</span>
+    <br />
+
+    <!-- Add a button to the web page to increment the current frame-->
+    <button id="incrementButton">Increment Frame</button>
+
+    <script>
+
+        // Create a variable named "animationFrames" and set it to an array of
+        // hardcoded ASCII animation frames to display in the UI
+        const animationFrames = [
+            "^_^                   ^_^",
+            "^_^                   ^_^",
+            "^_^                   ^_^",
+            "^_^=B                 ^_^",
+            "^_^=B                 ^_^",
+            "^_^=B                 ^_^",
+            "^_^=B                 ^_^",
+            "^_^==B                ^_^",
+            "^_^====B              ^_^",
+            "^_^=======B           ^_^",
+            ">_<==========B        ^_^",
+            ">_<===============B * x_x",
+            ">_<===============B * x_x",
+            ">_<===============B * x_x",
+            ">_<===============B * x_x",
+            ">_<===============B * x_x",
+            ">_<===============B * x_x",
+        ]
+
+        const numberOfFrames = animationFrames.length;
+
+        // Create a variable named "animationFrame" and set the first frame to 0
+        let animationFrameIndex = 0;
+
+        // Function to increment the frame and log it
+        function incrementFrame() {
+            animationFrameIndex += 1;
+
+            // If we are past the last frame, loop back to the first frame
+            if (animationFrameIndex >= numberOfFrames) {
+                animationFrameIndex = 0;
+            }
+
+            // Log animationFrameIndex to the CONSOLE
+            console.log(`Frame: ${animationFrameIndex}`);
+
+            // Display animationFrame in the USER INTERFACE (UI)
+            document.getElementById('animationFrameIndexDisplay').innerText = `Frame: ${animationFrameIndex}`;
+            document.getElementById('frameDisplay').innerText = animationFrames[animationFrameIndex];
+        }
+
+        // Add an event listener to the button to call incrementFrame when clicked
+        document.getElementById('incrementButton').addEventListener('click', incrementFrame);
+
+        // Display the first frame of the animation already
+        document.getElementById('frameDisplay').innerText = animationFrames[animationFrameIndex];
+    </script>
+</body>
+
+</html>
